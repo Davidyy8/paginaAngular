@@ -1,0 +1,74 @@
+<div class="contenedor">
+
+  <h2>Gestión de Centros</h2>
+
+  <!-- Si hay centros, mostramos el actual -->
+  <div *ngIf="centros.length > 0; else noCentros">
+
+    <img [src]="centros[index].logo" alt="logo" class="logo">
+
+    <h3>{{ centros[index].nombre }}</h3>
+    <p><strong>Localidad:</strong> {{ centros[index].localidad }}</p>
+
+    <p><strong>Ciclos formativos:</strong></p>
+    <ul>
+      <li *ngFor="let ciclo of centros[index].ciclos">
+        {{ ciclo }}
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- sI NO HAY CENTROS -->
+  <ng-template #noCentros>
+    <p><em>No hay centros disponibles.</em></p>
+  </ng-template>
+
+  <!-- BOTONES -->
+  <div class="botones">
+
+    <!-- ANTERIOR solo si no estamos en la posición 0 -->
+    <button type="button" class="btn btn-primary" (click)="anterior()" *ngIf="index > 0">
+      ANTERIOR
+    </button>
+
+    <!-- ELIMINAR -->
+    <button type="button" class="btn btn-danger" (click)="eliminar()" [disabled]="centros.length === 0">
+      ELIMINAR
+    </button>
+
+    <!-- POSICIÓN -->
+    <button disabled>
+      POSICIÓN: {{ index + 1 }} / {{ centros.length }}
+    </button>
+
+    <!-- INSERTAR desde la pila -->
+    <button type="button" class="btn btn-success" (click)="insertar()" [disabled]="pila.length === 0">
+      INSERTAR
+    </button>
+
+    <!-- POSTERIOR solo si no estamos al final -->
+    <button type="button" class="btn btn-light" (click)="posterior()" *ngIf="index < centros.length - 1">
+      POSTERIOR
+    </button>
+
+  </div>
+
+  <!-- PILA de centros eliminados -->
+  <div class="pila">
+    <h3>PILA (Centros eliminados)</h3>
+
+    <div *ngIf="pila.length > 0; else pilaVacia">
+      <ul>
+        <li *ngFor="let item of pila">
+          {{ item.nombre }}
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #pilaVacia>
+      <p><em>Pila vacía.</em></p>
+    </ng-template>
+  </div>
+
+</div>

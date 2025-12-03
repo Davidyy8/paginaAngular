@@ -1,0 +1,61 @@
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+hr {
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.botones {
+  display: flex;           /* activa Flexbox */
+  justify-content: center; /* centra horizontalmente */
+  gap: 10px;               /* separa los botones entre sí */
+  margin-top: 20px;        /* espacio superior opcional */
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-incrementar {
+  background-color: #28a745; /* verde */
+}
+
+.btn-incrementar:hover {
+  background-color: #218838;
+}
+
+/* Botón -1 */
+.btn-decrementar {
+  background-color: #ffc107; /* amarillo */
+  color: #333;               /* texto oscuro para contraste */
+}
+
+.btn-decrementar:hover{
+  background-color: orange;
+}
+
+.btn-reset {
+  background-color: red;
+  border: 0.5px solid transparent;
+}
+
+.btn-reset:hover {
+  background-color: white;
+  border-color: black;
+  color: black;
+}
