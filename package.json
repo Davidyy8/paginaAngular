@@ -8,7 +8,7 @@
     "build:href": "ng build --base-href ./",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "copy:dist": "copyfiles dist/bases/* ./docs -f"
+    "copy:dist": "copyfiles -r dist/02-bases/browser/**/* ./docs/"
   },
   "prettier": {
     "printWidth": 100,
@@ -39,6 +39,7 @@
     "@angular/cli": "^20.3.4",
     "@angular/compiler-cli": "^20.3.0",
     "@types/jasmine": "~5.1.0",
+    "copyfiles": "^2.4.1",
     "del-cli": "^7.0.0",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
